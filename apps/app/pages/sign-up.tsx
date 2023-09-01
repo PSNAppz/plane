@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -8,8 +8,8 @@ import { useTheme } from "next-themes";
 // services
 import authenticationService from "services/authentication.service";
 // hooks
-import useUserAuth from "hooks/use-user-auth";
 import useToast from "hooks/use-toast";
+import useUserAuth from "hooks/use-user-auth";
 // layouts
 import DefaultLayout from "layouts/default-layout";
 // components
@@ -17,7 +17,6 @@ import { EmailPasswordForm } from "components/account";
 // ui
 import { Spinner } from "components/ui";
 // images
-import BluePlaneLogoWithoutText from "public/plane-logos/blue-without-text.png";
 // types
 import type { NextPage } from "next";
 type EmailPasswordFormValues = {
@@ -89,7 +88,13 @@ const SignUp: NextPage = () => {
         <div className="fixed grid place-items-center bg-custom-background-100 sm:py-5 top-11 sm:top-12 left-7 sm:left-16 lg:left-28">
           <div className="grid place-items-center bg-custom-background-100">
             <div className="h-[30px] w-[30px]">
-              <Image src={BluePlaneLogoWithoutText} alt="Plane Logo" />
+              <Image
+                src={"/assets/logo.png"}
+                layout="fixed"
+                width={42}
+                height={42}
+                alt="Zartek Logo"
+              />
             </div>
           </div>
         </div>

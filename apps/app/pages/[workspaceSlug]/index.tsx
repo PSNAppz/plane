@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { useRouter } from "next/router";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import useSWR, { mutate } from "swr";
 
@@ -13,29 +12,27 @@ import { WorkspaceAuthorizationLayout } from "layouts/auth-layout";
 // services
 import userService from "services/user.service";
 // hooks
-import useUser from "hooks/use-user";
 import useProjects from "hooks/use-projects";
+import useUser from "hooks/use-user";
 // components
+import { TourRoot } from "components/onboarding";
 import {
   CompletedIssuesGraph,
   IssuesList,
   IssuesPieChart,
   IssuesStats,
 } from "components/workspace";
-import { TourRoot } from "components/onboarding";
 // ui
 import { PrimaryButton, ProductUpdatesModal } from "components/ui";
 // icons
-import { BoltOutlined, GridViewOutlined } from "@mui/icons-material";
+import { GridViewOutlined } from "@mui/icons-material";
 // images
 import emptyDashboard from "public/empty-state/dashboard.svg";
-import githubBlackImage from "/public/logos/github-black.png";
-import githubWhiteImage from "/public/logos/github-white.png";
 // helpers
 import { render12HourFormatTime, renderShortDate } from "helpers/date-time.helper";
 // types
-import { ICurrentUserResponse } from "types";
 import type { NextPage } from "next";
+import { ICurrentUserResponse } from "types";
 // fetch-keys
 import { CURRENT_USER, USER_WORKSPACE_DASHBOARD } from "constants/fetch-keys";
 // constants
@@ -78,24 +75,13 @@ const WorkspacePage: NextPage = () => {
       }
       right={
         <div className="flex items-center gap-3 px-3">
-          <button
+          {/* <button
             onClick={() => setIsProductUpdatesModalOpen(true)}
             className="flex items-center gap-1.5 bg-custom-background-80 text-xs font-medium py-1.5 px-3 rounded"
           >
             <BoltOutlined fontSize="small" className="-my-1" />
             What{"'"}s New?
-          </button>
-          <Link href="https://github.com/makeplane/plane" target="_blank" rel="noopener noreferrer">
-            <a className="flex items-center gap-1.5 bg-custom-background-80 text-xs font-medium py-1.5 px-3 rounded">
-              <Image
-                src={theme === "dark" ? githubWhiteImage : githubBlackImage}
-                height={16}
-                width={16}
-                alt="GitHub Logo"
-              />
-              Star us on GitHub
-            </a>
-          </Link>
+          </button> */}
         </div>
       }
     >

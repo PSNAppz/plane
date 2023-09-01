@@ -5,12 +5,11 @@ import Link from "next/link";
 // headless ui
 import { Transition } from "@headlessui/react";
 // hooks
-import useTheme from "hooks/use-theme";
 import useOutsideClickDetector from "hooks/use-outside-click-detector";
 // icons
-import { Bolt, HelpOutlineOutlined, WestOutlined } from "@mui/icons-material";
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/outline";
-import { DocumentIcon, DiscordIcon, GithubIcon } from "components/icons";
+import { Bolt, HelpOutlineOutlined, WestOutlined } from "@mui/icons-material";
+import { DiscordIcon, DocumentIcon, GithubIcon } from "components/icons";
 // mobx store
 import { useMobxStore } from "lib/mobx/store-provider";
 
@@ -58,11 +57,11 @@ export const WorkspaceHelpSection: React.FC<WorkspaceHelpSectionProps> = ({ setS
           store?.theme?.sidebarCollapsed ? "flex-col" : ""
         }`}
       >
-        {!store?.theme?.sidebarCollapsed && (
+        {/* {!store?.theme?.sidebarCollapsed && (
           <div className="w-1/2 text-center cursor-default rounded-md px-2.5 py-1.5 font-medium outline-none text-sm bg-green-500/10 text-green-500">
             Free Plan
           </div>
-        )}
+        )} */}
         <div
           className={`flex items-center gap-1 ${
             store?.theme?.sidebarCollapsed ? "flex-col justify-center" : "justify-evenly w-1/2"

@@ -1,5 +1,3 @@
-import React from "react";
-
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -37,7 +35,7 @@ const workspaceLinks = (workspaceSlug: string) => [
   },
   {
     Icon: TaskAltOutlined,
-    name: "My Issues",
+    name: "My Tasks",
     href: `/${workspaceSlug}/me/my-issues`,
   },
 ];

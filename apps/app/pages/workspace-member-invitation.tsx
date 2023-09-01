@@ -1,16 +1,8 @@
-import React from "react";
 // next
 
+import { CheckIcon, CubeIcon, UserIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import {
-  CheckIcon,
-  CubeIcon,
-  ShareIcon,
-  StarIcon,
-  UserIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
 // swr
 // services
 import workspaceService from "services/workspace.service";
@@ -125,20 +117,6 @@ const WorkspaceInvitation: NextPage = () => {
                 }}
               />
             )}
-            <EmptySpaceItem
-              Icon={StarIcon}
-              title="Star us on GitHub"
-              action={() => {
-                router.push("https://github.com/makeplane");
-              }}
-            />
-            <EmptySpaceItem
-              Icon={ShareIcon}
-              title="Join our community of active creators"
-              action={() => {
-                router.push("https://discord.com/invite/8SR2N9PAcJ");
-              }}
-            />
           </EmptySpace>
         ) : (
           <div className="flex h-full w-full items-center justify-center">

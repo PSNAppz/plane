@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 // react hook form
 import { useForm } from "react-hook-form";
@@ -46,8 +46,8 @@ export const EmailPasswordForm: React.FC<Props> = ({ onSubmit }) => {
         {isResettingPassword
           ? "Reset your password"
           : isSignUpPage
-          ? "Sign up on Plane"
-          : "Sign in to Plane"}
+          ? "Create your account"
+          : "Sign in to Zartek"}
       </h1>
       {isResettingPassword ? (
         <EmailResetPasswordForm setIsResettingPassword={setIsResettingPassword} />

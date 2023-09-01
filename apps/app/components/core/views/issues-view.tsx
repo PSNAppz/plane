@@ -8,17 +8,17 @@ import useSWR, { mutate } from "swr";
 import { DropResult } from "react-beautiful-dnd";
 // services
 import issuesService from "services/issues.service";
-import stateService from "services/state.service";
 import modulesService from "services/modules.service";
+import stateService from "services/state.service";
 import trackEventServices from "services/track-event.service";
 // hooks
-import useToast from "hooks/use-toast";
-import useIssuesView from "hooks/use-issues-view";
-import useUserAuth from "hooks/use-user-auth";
 import useIssuesProperties from "hooks/use-issue-properties";
+import useIssuesView from "hooks/use-issues-view";
 import useProjectMembers from "hooks/use-project-members";
+import useToast from "hooks/use-toast";
+import useUserAuth from "hooks/use-user-auth";
 // components
-import { FiltersList, AllViews } from "components/core";
+import { AllViews, FiltersList } from "components/core";
 import { CreateUpdateIssueModal, DeleteIssueModal } from "components/issues";
 import { CreateUpdateViewModal } from "components/views";
 // ui
@@ -26,8 +26,8 @@ import { PrimaryButton, SecondaryButton } from "components/ui";
 // icons
 import { PlusIcon } from "@heroicons/react/24/outline";
 // helpers
-import { getStatesList } from "helpers/state.helper";
 import { orderArrayBy } from "helpers/array.helper";
+import { getStatesList } from "helpers/state.helper";
 // types
 import { IIssue, IIssueFilterOptions, IState } from "types";
 // fetch-keys
@@ -522,12 +522,12 @@ export const IssuesView: React.FC<Props> = ({
             ? "Cycle issues will appear here"
             : moduleId
             ? "Module issues will appear here"
-            : "Project issues will appear here",
+            : "Project tasks will appear here",
           description:
-            "Issues help you track individual pieces of work. With Issues, keep track of what's going on, who is working on it, and what's done.",
+            "Tasks help you track individual pieces of work. With Tasks, keep track of what's going on, who is working on it, and what's done.",
           primaryButton: {
             icon: <PlusIcon className="h-4 w-4" />,
-            text: "New Issue",
+            text: "New Task",
             onClick: () => {
               const e = new KeyboardEvent("keydown", {
                 key: "c",
@@ -542,7 +542,7 @@ export const IssuesView: React.FC<Props> = ({
                 onClick={openIssuesListModal ?? (() => {})}
               >
                 <PlusIcon className="h-4 w-4" />
-                Add an existing issue
+                Add an existing task
               </SecondaryButton>
             ) : null,
         }}

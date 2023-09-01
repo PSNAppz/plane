@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import { useRouter } from "next/router";
 
@@ -7,16 +7,15 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 // layouts
 import { WorkspaceAuthorizationLayout } from "layouts/auth-layout";
 // hooks
-import useProjects from "hooks/use-projects";
 import useMyIssuesFilters from "hooks/my-issues/use-my-issues-filter";
 // components
 import { MyIssuesView, MyIssuesViewOptions } from "components/issues";
 // ui
+import { BreadcrumbItem, Breadcrumbs } from "components/breadcrumbs";
 import { PrimaryButton } from "components/ui";
-import { Breadcrumbs, BreadcrumbItem } from "components/breadcrumbs";
 // types
-import type { NextPage } from "next";
 import useUser from "hooks/use-user";
+import type { NextPage } from "next";
 
 const MyIssuesPage: NextPage = () => {
   const router = useRouter();
@@ -80,7 +79,7 @@ const MyIssuesPage: NextPage = () => {
     <WorkspaceAuthorizationLayout
       breadcrumbs={
         <Breadcrumbs>
-          <BreadcrumbItem title="My Issues" />
+          <BreadcrumbItem title="My Tasks" />
         </Breadcrumbs>
       }
       right={

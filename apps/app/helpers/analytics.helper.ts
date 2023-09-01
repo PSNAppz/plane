@@ -5,9 +5,9 @@ import { capitalizeFirstLetter, generateRandomColor } from "helpers/string.helpe
 // types
 import { IAnalyticsData, IAnalyticsParams, IAnalyticsResponse } from "types";
 // constants
-import { STATE_GROUP_COLORS } from "constants/state";
-import { MONTHS_LIST } from "constants/calendar";
 import { DATE_KEYS } from "constants/analytics";
+import { MONTHS_LIST } from "constants/calendar";
+import { STATE_GROUP_COLORS } from "constants/state";
 
 export const convertResponseToBarGraphData = (
   response: IAnalyticsData | undefined,

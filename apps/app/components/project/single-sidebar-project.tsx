@@ -26,7 +26,6 @@ import {
   SettingsOutlined,
 } from "@mui/icons-material";
 // helpers
-import { truncateText } from "helpers/string.helper";
 import { renderEmoji } from "helpers/emoji.helper";
 // types
 import { IProject } from "types";
@@ -50,7 +49,7 @@ type Props = {
 
 const navigation = (workspaceSlug: string, projectId: string) => [
   {
-    name: "Issues",
+    name: "Tasks",
     href: `/${workspaceSlug}/projects/${projectId}/issues`,
     Icon: FilterNoneOutlined,
   },

@@ -1,5 +1,5 @@
 // ui
-import { BarGraph, ProfileEmptyState, Loader } from "components/ui";
+import { BarGraph, Loader, ProfileEmptyState } from "components/ui";
 // image
 import emptyBarGraph from "public/empty-state/empty_bar_graph.svg";
 // helpers
@@ -66,7 +66,7 @@ export const ProfilePriorityDistribution: React.FC<Props> = ({ userProfile }) =>
           <div className="flex-grow p-7">
             <ProfileEmptyState
               title="No Data yet"
-              description="Create issues to view the them by priority in the graph for better analysis."
+              description="Create tasks to view the them by priority in the graph for better analysis."
               image={emptyBarGraph}
             />
           </div>

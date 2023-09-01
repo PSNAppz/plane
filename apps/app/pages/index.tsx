@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import Image from "next/image";
 
@@ -9,19 +9,18 @@ import DefaultLayout from "layouts/default-layout";
 // services
 import authenticationService from "services/authentication.service";
 // hooks
-import useUserAuth from "hooks/use-user-auth";
 import useToast from "hooks/use-toast";
+import useUserAuth from "hooks/use-user-auth";
 // components
 import {
-  GoogleLoginButton,
-  GithubLoginButton,
   EmailCodeForm,
   EmailPasswordForm,
+  GithubLoginButton,
+  GoogleLoginButton,
 } from "components/account";
 // ui
 import { Spinner } from "components/ui";
 // images
-import BluePlaneLogoWithoutText from "public/plane-logos/blue-without-text.png";
 // mobx react lite
 import { observer } from "mobx-react-lite";
 // mobx store
@@ -166,7 +165,13 @@ const HomePage: NextPage = observer(() => {
             <div className="fixed grid place-items-center bg-custom-background-100 sm:py-5 top-11 sm:top-12 left-7 sm:left-16 lg:left-28">
               <div className="grid place-items-center bg-custom-background-100">
                 <div className="h-[30px] w-[30px]">
-                  <Image src={BluePlaneLogoWithoutText} alt="Plane Logo" />
+                  <Image
+                    src={"/assets/logo.png"}
+                    layout="fixed"
+                    width={42}
+                    height={42}
+                    alt="Zartek Logo"
+                  />
                 </div>
               </div>
             </div>
@@ -176,7 +181,7 @@ const HomePage: NextPage = observer(() => {
               {parseInt(process.env.NEXT_PUBLIC_ENABLE_OAUTH || "0") ? (
                 <>
                   <h1 className="text-center text-2xl sm:text-2.5xl font-semibold text-custom-text-100">
-                    Sign in to Plane
+                    Sign in to Zartek Projects
                   </h1>
                   <div className="flex flex-col divide-y divide-custom-border-200">
                     <div className="pb-7">
@@ -196,7 +201,7 @@ const HomePage: NextPage = observer(() => {
                 <p className="pt-16 text-custom-text-200 text-sm text-center">
                   By signing up, you agree to the{" "}
                   <a
-                    href="https://plane.so/terms-and-conditions"
+                    href="/terms-and-conditions"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-medium underline"

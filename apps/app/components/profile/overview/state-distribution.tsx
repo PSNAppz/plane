@@ -1,5 +1,5 @@
 // ui
-import { ProfileEmptyState, PieGraph } from "components/ui";
+import { PieGraph, ProfileEmptyState } from "components/ui";
 // image
 import stateGraph from "public/empty-state/state_graph.svg";
 // types
@@ -81,7 +81,7 @@ export const ProfileStateDistribution: React.FC<Props> = ({ stateDistribution, u
         ) : (
           <ProfileEmptyState
             title="No Data yet"
-            description="Create issues to view the them by states in the graph for better analysis."
+            description="Create tasks to view the them by states in the graph for better analysis."
             image={stateGraph}
           />
         )}

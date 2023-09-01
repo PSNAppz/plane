@@ -97,7 +97,7 @@ export const UserDetails: React.FC<Props> = ({ user }) => {
         <div className="text-custom-primary-100 absolute -top-1 -left-3">{'"'}</div>
         <h5>Hey there 👋🏻</h5>
         <h5 className="mt-5 mb-6">Let{"'"}s get you onboard!</h5>
-        <h4 className="text-xl sm:text-2xl font-semibold">Set up your Plane profile.</h4>
+        <h4 className="text-xl sm:text-2xl font-semibold">Set up your Zartek profile.</h4>
       </div>
 
       <div className="space-y-7 sm:w-3/4 md:w-2/5">
