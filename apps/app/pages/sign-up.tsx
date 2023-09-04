@@ -17,6 +17,8 @@ import { EmailPasswordForm } from "components/account";
 // ui
 import { Spinner } from "components/ui";
 // images
+import logo from "public/assets/logo.png";
+
 // types
 import type { NextPage } from "next";
 type EmailPasswordFormValues = {
@@ -88,13 +90,7 @@ const SignUp: NextPage = () => {
         <div className="fixed grid place-items-center bg-custom-background-100 sm:py-5 top-11 sm:top-12 left-7 sm:left-16 lg:left-28">
           <div className="grid place-items-center bg-custom-background-100">
             <div className="h-[30px] w-[30px]">
-              <Image
-                src={"/assets/logo.png"}
-                layout="fixed"
-                width={42}
-                height={42}
-                alt="Zartek Logo"
-              />
+              <Image src={logo} layout="fixed" width={42} height={42} alt="Zartek Logo" />
             </div>
           </div>
         </div>
