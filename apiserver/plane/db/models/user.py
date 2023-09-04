@@ -21,8 +21,8 @@ from slack_sdk.errors import SlackApiError
 def get_default_onboarding():
     return {
         "profile_complete": False,
-        "workspace_create": False,
-        "workspace_invite": False,
+        "workspace_create": True,
+        "workspace_invite": True,
         "workspace_join": False,
     }
 
