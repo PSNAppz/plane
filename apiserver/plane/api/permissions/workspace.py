@@ -15,19 +15,12 @@ Guest = 5
 # TODO: Move the below logic to python match - python v3.10
 class WorkSpaceBasePermission(BasePermission):
     def has_permission(self, request, view):
-        # allow anyone to create a workspace
-        if request.user.is_anonymous:
-            return False
-
-        if request.method == "POST":
-            return True
-
         ## Safe Methods
         if request.method in SAFE_METHODS:
             return True
 
-        # allow only admins and owners to update the workspace settings
-        if request.method in ["PUT", "PATCH"]:
+        # allow only admins and owners to create or update the workspace settings
+        if request.method in ["PUT", "PATCH", "POST"]:
             return WorkspaceMember.objects.filter(
                 member=request.user,
                 workspace__slug=view.workspace_slug,
