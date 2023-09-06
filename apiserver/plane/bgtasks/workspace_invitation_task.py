@@ -22,10 +22,16 @@ def workspace_invitation(email, workspace_id, token, current_site, invitor):
             token=token, email=email
         )
 
-        realtivelink = (
-            f"/workspace-member-invitation/?invitation_id={workspace_member_invite.id}&email={email}"
-        )
-        abs_url = current_site + realtivelink
+        try:
+            User.objects.get(email=email)
+            relativelink = (
+                f"/workspace-member-invitation/?invitation_id={workspace_member_invite.id}&email={email}"
+            )
+        except User.DoesNotExist:
+            relativelink = (
+                f"/sign-up"
+            )
+        abs_url = current_site + relativelink
 
         from_email_string = settings.EMAIL_FROM
 
