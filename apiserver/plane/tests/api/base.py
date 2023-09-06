@@ -16,7 +16,7 @@ class AuthenticatedAPITest(BaseAPITest):
         super().setUp()
 
         ## Create Dummy User
-        self.email = "user@plane.so"
+        self.email = "user@zartek.in"
         user = User.objects.create(email=self.email)
         user.set_password("user@123")
         user.save()
