@@ -12,7 +12,7 @@ from plane.db.models import User
 
 
 def populate():
-    default_email = os.environ.get("DEFAULT_EMAIL", "captain@plane.so")
+    default_email = os.environ.get("DEFAULT_EMAIL", "info@zartek.in")
     default_password = os.environ.get("DEFAULT_PASSWORD", "password123")
 
     if not User.objects.filter(email=default_email).exists():
