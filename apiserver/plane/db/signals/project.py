@@ -10,11 +10,14 @@ def add_admin_and_owner_to_project(sender, instance: Project, created, **kwargs)
     print("post_save project_created")
     workspace = instance.workspace
     if created:
-        admin_and_owner_users = User.objects.filter(
-            member_workspace__workspace=workspace,
-            member_workspace__role__in=[Admin, Owner]
-        )
-        for user in admin_and_owner_users:
-            ProjectMember.objects.create(project=instance,
-                                         member=user,
-                                         role=user.workspace_member.get(workspace=workspace).role)
+        try:
+            admin_and_owner_users = User.objects.filter(
+                member_workspace__workspace=workspace,
+                member_workspace__role__in=[Admin, Owner]
+            )
+            for user in admin_and_owner_users:
+                ProjectMember.objects.update_or_create(project=instance,
+                                                       member=user,
+                                                       role=user.workspace_member.get(workspace=workspace).role)
+        except Exception as e:
+            print(e)

@@ -13,6 +13,9 @@ def add_admin_and_owner_to_projects(sender, instance: WorkspaceMember, created, 
     if instance.role in [Admin, Owner]:
         projects_in_workspace = Project.objects.filter(workspace=instance.workspace)
         for project in projects_in_workspace:
-            ProjectMember.objects.update_or_create(project=project,
-                                                   member=instance.member,
-                                                   role=instance.role)
+            try:
+                ProjectMember.objects.update_or_create(project=project,
+                                                       member=instance.member,
+                                                       role=instance.role)
+            except Exception as e:
+                print(e)
