@@ -15,6 +15,7 @@ def add_admin_and_owner_to_project(sender, instance: Project, created, **kwargs)
                 member_workspace__role__in=[Admin, Owner]
             )
             for user in admin_and_owner_users:
+                print("post_save", user)
                 ProjectMember.objects.update_or_create(project=instance,
                                                        member=user,
                                                        role=user.member_workspace.get(workspace=workspace).role)
