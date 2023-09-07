@@ -3,9 +3,7 @@ import datetime
 from datetime import timedelta
 from django.core.management.utils import get_random_secret_key
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 SECRET_KEY = os.environ.get("SECRET_KEY", get_random_secret_key())
 
@@ -14,10 +12,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.messages",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -49,7 +48,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "crum.CurrentRequestUserMiddleware",
     "django.middleware.gzip.GZipMiddleware",
- ]
+    'django.contrib.messages.middleware.MessageMiddleware'
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -84,7 +84,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 JWT_AUTH = {
     "JWT_ENCODE_HANDLER": "rest_framework_jwt.utils.jwt_encode_handler",
@@ -128,7 +127,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -156,7 +154,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 MEDIA_ROOT = "mediafiles"
 MEDIA_URL = "/media/"
 
-
 # Internationalization
 
 LANGUAGE_CODE = "en-us"
@@ -182,7 +179,6 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "1") == "1"
 EMAIL_USE_SSL = os.environ.get("EMAIL_USE_SSL", "0") == "1"
 EMAIL_FROM = os.environ.get("EMAIL_FROM", "Team Plane <team@mailer.plane.so>")
-
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10080),
@@ -214,4 +210,4 @@ SIMPLE_JWT = {
 CELERY_TIMEZONE = TIME_ZONE
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_IMPORTS = ("plane.bgtasks.issue_automation_task","plane.bgtasks.exporter_expired_task")
+CELERY_IMPORTS = ("plane.bgtasks.issue_automation_task", "plane.bgtasks.exporter_expired_task")
