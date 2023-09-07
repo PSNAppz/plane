@@ -7,6 +7,7 @@ from plane.db.models import Project, User, ProjectMember
 
 @receiver(post_save, sender=Project)
 def add_admin_and_owner_to_project(sender, instance: Project, created, **kwargs):
+    print("post_save project_created")
     workspace = instance.workspace
     if created:
         admin_and_owner_users = User.objects.filter(
