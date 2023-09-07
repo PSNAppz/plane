@@ -223,7 +223,7 @@ class ProjectViewSet(BaseViewSet):
 
                 # Add the user as Administrator to the project
                 # The user might already be added in the post_save for Project
-                project_member = ProjectMember.objects.update_or_create(
+                project_member, created = ProjectMember.objects.update_or_create(
                     project_id=serializer.data["id"], member=request.user, role=20
                 )
 
