@@ -305,6 +305,7 @@ class ProjectViewSet(BaseViewSet):
                 )
             else:
                 capture_exception(e)
+                print("project_error", e)
                 return Response(
                     {"error": "Something went wrong please try again later"},
                     status=status.HTTP_410_GONE,
