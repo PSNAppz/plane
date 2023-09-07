@@ -18,6 +18,6 @@ def add_admin_and_owner_to_project(sender, instance: Project, created, **kwargs)
             for user in admin_and_owner_users:
                 ProjectMember.objects.update_or_create(project=instance,
                                                        member=user,
-                                                       role=user.workspace_member.get(workspace=workspace).role)
+                                                       role=user.member_workspace.get(workspace=workspace).role)
         except Exception as e:
             print(e)
