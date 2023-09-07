@@ -298,6 +298,7 @@ class ProjectViewSet(BaseViewSet):
             )
         except IntegrityError as e:
             if "already exists" in str(e):
+                print(e)
                 return Response(
                     {"name": "The project name is already taken"},
                     status=status.HTTP_410_GONE,
